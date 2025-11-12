@@ -1,13 +1,16 @@
-import { Loader } from "lucide-react";
+import { Loader2 } from "lucide-react";
 import backgroundImage1 from "./assets/bg_2.jpg";
 import SearchBar from "./components/SearchBar";
 import TemperatureToggle from "./components/TemperatureToggle";
+import ErrorMessage from "./components/ErrorMessage";
+import WeatherCard from "./components/WeatherCard";
+import WeatherForecast from "./components/WeatherForecast";
 function App() {
   return (
-    <div className="min-h-screen relative overflow-hidden">
+    <div className="min-h-screen relative overflow-auto">
       {/* Background image with overlay */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className="relative bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${backgroundImage1})` }}
       >
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900/40 via-purple-900/30 to-indigo-900/40">
@@ -31,18 +34,37 @@ function App() {
                 </p>
               </div>
               <div className="flex flex-col lg:flex items-center justify-center space-y-6 lg:space-y-8 lg:space-x-6 mb-12">
-                <SearchBar />
+                {/* <SearchBar /> */}
                 <TemperatureToggle />
               </div>
             </div>
             {/*Main Content  */}
             <div className="space-y-8">
               {/* Conditional Rendering */}
-              <div className="flex justify-center">
-                <div className="bg-white/10 backdrop-blur-xl rounded-3xl p-8 border border-white/20 mt-20">
-                  <Loader />
-                  <p className="text-white/80 text-center
-                  mt-4 font-medium">Fetching latest weather data.....</p>
+              {/* <div className="flex justify-center">
+                <div className="bg-white/10 backdrop-blur-xl rounded-3xl p-8 border border-white/20">
+                  <Loader2 />
+                  <p
+                    className="text-white/80 text-center
+                  mt-4 font-medium"
+                  >
+                    Fetching latest weather data.....
+                  </p>
+                </div>
+              </div> */}
+              {/* Conditional Rendering */}
+              {/* <div className="max-w-2xl mx-auto">
+                <ErrorMessage />
+              </div> */}
+
+              {/* Conditional Rendering */}
+              <div className="grid grid-cols-1 xl:grid-cols-3 gap-8">
+                <div className="xl:col-span-2">
+                  <WeatherCard />
+                </div>
+                <div className="xl:col-span-1">
+                  {/* Conditional Rendering */}
+                  <WeatherForecast />
                 </div>
               </div>
             </div>
