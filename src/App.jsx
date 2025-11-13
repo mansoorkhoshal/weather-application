@@ -1,78 +1,35 @@
-import { Loader2 } from "lucide-react";
-import backgroundImage1 from "./assets/bg_2.jpg";
-import SearchBar from "./components/SearchBar";
-import TemperatureToggle from "./components/TemperatureToggle";
-import ErrorMessage from "./components/ErrorMessage";
-import WeatherCard from "./components/WeatherCard";
-import WeatherForecast from "./components/WeatherForecast";
-function App() {
-  return (
-    <div className="min-h-screen relative overflow-auto">
-      {/* Background image with overlay */}
-      <div
-        className="relative bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${backgroundImage1})` }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/40 via-purple-900/30 to-indigo-900/40">
-          <div className="absolute inset-0 bg-black-20"></div>
-        </div>
-        <div className="relative z-10 container mx-auto px-4 py-8 min-w-screen">
-          <div className="max-w-7xl mx-auto">
-            {/* header section */}
-            <div className="text-center mb-12">
-              <div className="mb-8">
-                <h1 className="text-5xl md:text-7xl font-bold text-white mb-4 drop-shadow-2xl tracking-tight">
-                  Weather{" "}
-                  <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                    Pro
-                  </span>
-                </h1>
-                <p className="text-white/80 text-lg md:text-xl mb-8 max-w-2xl mx-auto leading-relaxed">
-                  Experience weather like never before with real-time data,
-                  beautiful visuals, and precise forecasts for any location
-                  worldwide.
-                </p>
-              </div>
-              <div className="flex flex-col lg:flex items-center justify-center space-y-6 lg:space-y-8 lg:space-x-6 mb-12">
-                {/* <SearchBar /> */}
-                <TemperatureToggle />
-              </div>
-            </div>
-            {/*Main Content  */}
-            <div className="space-y-8">
-              {/* Conditional Rendering */}
-              {/* <div className="flex justify-center">
-                <div className="bg-white/10 backdrop-blur-xl rounded-3xl p-8 border border-white/20">
-                  <Loader2 />
-                  <p
-                    className="text-white/80 text-center
-                  mt-4 font-medium"
-                  >
-                    Fetching latest weather data.....
-                  </p>
-                </div>
-              </div> */}
-              {/* Conditional Rendering */}
-              {/* <div className="max-w-2xl mx-auto">
-                <ErrorMessage />
-              </div> */}
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import './App.css'
 
-              {/* Conditional Rendering */}
-              <div className="grid grid-cols-1 xl:grid-cols-3 gap-8">
-                <div className="xl:col-span-2">
-                  <WeatherCard />
-                </div>
-                <div className="xl:col-span-1">
-                  {/* Conditional Rendering */}
-                  <WeatherForecast />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+function App() {
+  const [count, setCount] = useState(0)
+
+  return (
+    <>
+      <div>
+        <a href="https://vite.dev" target="_blank">
+          <img src={viteLogo} className="logo" alt="Vite logo" />
+        </a>
+        <a href="https://react.dev" target="_blank">
+          <img src={reactLogo} className="logo react" alt="React logo" />
+        </a>
       </div>
-    </div>
-  );
+      <h1>Vite + React</h1>
+      <div className="card">
+        <button onClick={() => setCount((count) => count + 1)}>
+          count is {count}
+        </button>
+        <p>
+          Edit <code>src/App.jsx</code> and save to test HMR
+        </p>
+      </div>
+      <p className="read-the-docs">
+        Click on the Vite and React logos to learn more
+      </p>
+    </>
+  )
 }
 
-export default App;
+export default App
