@@ -1,9 +1,3 @@
-import windIcon from "../assets/wind.png";
-import humidityIcon from "../assets/humidity.png";
-import visibilityIcon from "../assets/visibility.png";
-import sunriseIcon from "../assets/sunrise.png";
-import sunsetIcon from "../assets/sunset.png";
-
 const Icon = ({ src, alt, className, title }) => (
   <img
     src={src}
@@ -14,41 +8,21 @@ const Icon = ({ src, alt, className, title }) => (
 );
 
 export const WindIcon = () => (
-  <Icon src={windIcon} alt="wind" title="Wind" className="animate-icon" />
+  <Icon src="/icons/wind.png" alt="Wind" title="Wind" />
 );
 
 export const HumidityIcon = () => (
-  <Icon
-    src={humidityIcon}
-    alt="humidity"
-    title="Humidity"
-    className="powerful-pulse"
-  />
+  <Icon src="/icons/humidity.png" alt="Humidity" title="Humidity" />
 );
 
 export const VisibilityIcon = () => (
-  <Icon
-    src={visibilityIcon}
-    alt="visibility"
-    title="Visibility"
-    className="powerful-pulse"
-  />
+  <Icon src="/icons/visibility.png" alt="Visibility" title="Visibility" />
 );
 
 export const SunriseIcon = () => (
-  <Icon
-    src={sunriseIcon}
-    alt="Sunrise"
-    title="Sunrise"
-    className="powerful-pulse"
-  />
+  <Icon src="/icons/sunrise.png" alt="Sunrise" title="Sunrise" />
 );
 
 export const SunsetIcon = () => (
-  <Icon
-    src={sunsetIcon}
-    alt="Sunset"
-    title="Sunset"
-    className="powerful-pulse"
-  />
+  <Icon src="/icons/sunset.png" alt="Sunset" title="Sunset" />
 );
