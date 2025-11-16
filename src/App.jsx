@@ -545,7 +545,7 @@ export default function App() {
                 <div className="mb-4 lg:sticky lg:top-6">
                   <CardShell className="p-4">
                     <h4 className="font-semibold mb-3">Sun & Moon</h4>
-                    <div className="flex flex-col gap-3">
+                    <div className="flex flex-col gap-5">
                       <div className="flex items-center gap-3">
                         <SunriseIcon />
                         <div>
