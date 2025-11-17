@@ -467,28 +467,6 @@ export default function App() {
                               </div>
                             </div>
                           </div>
-
-                          {/* <div className="mt-4 text-sm text-white/80 space-y-1">
-                            <div className="flex justify-around">
-                              <div>
-                                <strong>Feels like:</strong>{" "}
-                                {convertTemperature(
-                                  weather.main.feels_like,
-                                  unit
-                                )}
-                                °{unit}
-                              </div>
-                              <div>
-                                <strong>Pressure:</strong>{" "}
-                                {weather.main.pressure} hPa
-                              </div>
-                              <div>
-                                <strong>Coordinates:</strong>{" "}
-                                {weather.coord.lat.toFixed(2)},{" "}
-                                {weather.coord.lon.toFixed(2)}
-                              </div>
-                            </div>
-                          </div> */}
                         </div>
                       </div>
                     </CardShell>

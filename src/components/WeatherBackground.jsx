@@ -1,4 +1,3 @@
-// src/components/WeatherBackground.jsx
 import React from "react";
 import Thunderstorm from "../../public/Thunderstorm.gif";
 import Rain from "../../public/Rain.gif";
@@ -9,13 +8,6 @@ import CloudsDay from "../../public/CloudsDay.gif";
 import CloudsNight from "../../public/CloudsNight.gif";
 import Haze from "../../public/Haze.gif";
 import video from "../../public/video1.mp4";
-
-/**
- * Enhanced WeatherBackground
- * - Accepts either the full OpenWeather `weather` object OR the minimal `{ main, isDay }`
- * - Picks a GIF or video depending on condition, chooses day/night frames where available
- * - Adds animated gradient, drifting cloud overlay, floating particles, and sun/moon glow
- */
 
 const gifs = {
   Thunderstorm,
@@ -68,16 +60,12 @@ const MoonSVG = ({ size = 72 }) => (
 );
 
 const WeatherBackground = ({ condition }) => {
-  // Accept either:
-  // - Full openweather object (has weather[0].main, sys, dt...)
-  // - Minimal { main, isDay }
   const weatherMain =
     condition?.main ??
     condition?.weather?.[0]?.main ??
     (Array.isArray(condition?.weather) && condition.weather[0]?.main) ??
     null;
 
-  // Decide if day: prefer explicit boolean, then icon letter, then sys/dt if available
   let isDay = null;
   if (typeof condition?.isDay === "boolean") {
     isDay = condition.isDay;
@@ -88,16 +76,13 @@ const WeatherBackground = ({ condition }) => {
     condition?.sys?.sunrise &&
     condition?.sys?.sunset
   ) {
-    // compare local times (assumes unix seconds)
     isDay =
       condition.dt >= condition.sys.sunrise &&
       condition.dt < condition.sys.sunset;
   } else if (typeof condition?.isDay === "undefined") {
-    // if nothing available, default to true for nicer visual
     isDay = true;
   }
 
-  // pick asset
   const asset = weatherMain ? gifs[weatherMain] ?? gifs.default : gifs.default;
 
   const pickAsset = () => {
@@ -114,7 +99,6 @@ const WeatherBackground = ({ condition }) => {
   const isVideo =
     typeof background === "string" && background.toLowerCase().endsWith(".mp4");
 
-  // dynamic opacities / tints to keep content readable
   const bgImgOpacity = isDay ? "opacity-40" : "opacity-25";
   const gradientFrom = isDay
     ? "from-[rgba(255,255,255,0.06)]"
@@ -124,7 +108,6 @@ const WeatherBackground = ({ condition }) => {
 
   return (
     <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
-      {/* animated background media */}
       <div
         className={`absolute inset-0 transition-opacity duration-700 ${bgImgOpacity}`}
       >
@@ -149,19 +132,16 @@ const WeatherBackground = ({ condition }) => {
         )}
       </div>
 
-      {/* subtle multi-layer overlays */}
       <div
         className={`absolute inset-0 ${skyTint} ${gradientFrom} ${gradientTo} mix-blend-multiply transition-opacity duration-700`}
         style={{ pointerEvents: "none" }}
       />
 
-      {/* drifting cloud overlay (semi-transparent) */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute -top-20 -left-10 w-[140%] h-[45%] opacity-20 animate-clouds" />
         <div className="absolute top-10 -right-20 w-[120%] h-[40%] opacity-12 animate-clouds-slow" />
       </div>
 
-      {/* floating particles for depth */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute -left-4 top-1/4 w-1 h-1 rounded-full bg-white/30 animate-float delay-0" />
         <div className="absolute left-1/3 top-3/4 w-1.5 h-1.5 rounded-full bg-white/20 animate-float delay-200" />
@@ -169,7 +149,6 @@ const WeatherBackground = ({ condition }) => {
         <div className="absolute right-6 bottom-1/3 w-1 h-1 rounded-full bg-white/12 animate-float delay-600" />
       </div>
 
-      {/* sun / moon with glow */}
       <div
         className={`absolute top-6 right-6 z-10 transform-gpu transition-all duration-700 ${
           isDay ? "text-amber-400" : "text-sky-300"
@@ -193,12 +172,10 @@ const WeatherBackground = ({ condition }) => {
         </div>
       </div>
 
-      {/* top vignette for extra contrast */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-b from-black/12 to-transparent" />
       </div>
 
-      {/* embedded CSS keyframes used by the component */}
       <style>{`
         /* drifting cloud pseudo layers (using radial-gradients to keep self-contained) */
         .animate-clouds {

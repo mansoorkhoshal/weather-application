@@ -1,4 +1,3 @@
-// src/components/Icons.jsx
 import sunriseImg from "../../public/sunrise.png";
 import sunsetImg from "../../public/sunset.png";
 import windImg from "../../public/wind.png";
@@ -11,7 +10,6 @@ const Icon = ({ src, alt, className = "", title }) => (
     alt={alt}
     title={title || alt}
     className={`inline-block ${className}`}
-    // loading="lazy" optional
   />
 );
 
