@@ -1,28 +1,46 @@
-const Icon = ({ src, alt, className, title }) => (
+// src/components/Icons.jsx
+import sunriseImg from "../assets/sunrise.png";
+import sunsetImg from "../assets/sunset.png";
+import windImg from "../assets/wind.png";
+import humidityImg from "../assets/humidity.png";
+import visibilityImg from "../assets/visibility.png";
+
+const Icon = ({ src, alt, className = "", title }) => (
   <img
     src={src}
     alt={alt}
     title={title || alt}
-    className={`w-8 h-8 inline-block ${className}`}
+    className={`inline-block ${className}`}
+    // loading="lazy" optional
   />
 );
 
-export const WindIcon = () => (
-  <Icon src="/icons/wind.png" alt="Wind" title="Wind" />
+export const WindIcon = ({ className = "w-8 h-8 md:w-10 md:h-10" }) => (
+  <Icon src={windImg} alt="Wind" title="Wind" className={className} />
 );
 
-export const HumidityIcon = () => (
-  <Icon src="/icons/humidity.png" alt="Humidity" title="Humidity" />
+export const HumidityIcon = ({ className = "w-8 h-8 md:w-10 md:h-10" }) => (
+  <Icon
+    src={humidityImg}
+    alt="Humidity"
+    title="Humidity"
+    className={className}
+  />
 );
 
-export const VisibilityIcon = () => (
-  <Icon src="/icons/visibility.png" alt="Visibility" title="Visibility" />
+export const VisibilityIcon = ({ className = "w-8 h-8 md:w-10 md:h-10" }) => (
+  <Icon
+    src={visibilityImg}
+    alt="Visibility"
+    title="Visibility"
+    className={className}
+  />
 );
 
-export const SunriseIcon = () => (
-  <Icon src="/icons/sunrise.png" alt="Sunrise" title="Sunrise" />
+export const SunriseIcon = ({ className = "w-8 h-8 md:w-10 md:h-10" }) => (
+  <Icon src={sunriseImg} alt="Sunrise" title="Sunrise" className={className} />
 );
 
-export const SunsetIcon = () => (
-  <Icon src="/icons/sunset.png" alt="Sunset" title="Sunset" />
+export const SunsetIcon = ({ className = "w-8 h-8 md:w-10 md:h-10" }) => (
+  <Icon src={sunsetImg} alt="Sunset" title="Sunset" className={className} />
 );

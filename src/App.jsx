@@ -318,20 +318,21 @@ export default function App() {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
               <div className="lg:col-span-2">
                 <form onSubmit={handleSearch} className="relative mb-4">
-                  <div className="flex gap-3">
+                  <div className="flex flex-col sm:flex-row gap-3">
                     <input
-                      className="flex-1 px-4 py-3 rounded-lg bg-white/6 placeholder-white/70 border border-white/10 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+                      className="w-full flex-1 px-4 py-3 rounded-lg bg-white/6 placeholder-white/70 border border-white/10 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
                       value={city}
                       onChange={(e) => setCity(e.target.value)}
                       placeholder="Search city or country"
                     />
                     <button
                       type="submit"
-                      className="px-4 py-3 rounded-lg bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 transition font-semibold"
+                      className="w-full sm:w-auto px-4 py-3 rounded-lg bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 transition font-semibold flex items-center justify-center"
                     >
                       {loading ? <Loader /> : "Search"}
                     </button>
                   </div>
+
                   {suggestion?.length > 0 && (
                     <div className="absolute left-0 right-0 mt-2 bg-white/6 border border-white/10 rounded-lg overflow-hidden z-20">
                       {suggestion.map((s) => (
