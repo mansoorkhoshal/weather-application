@@ -1,14 +1,14 @@
 // src/components/WeatherBackground.jsx
 import React from "react";
-import Thunderstorm from "../assets/Thunderstorm.gif";
-import Rain from "../assets/Rain.gif";
-import SnowDay from "../assets/Snow.gif";
-import ClearDay from "../assets/ClearDay.gif";
-import ClearNight from "../assets/ClearNight.gif";
-import CloudsDay from "../assets/CloudsDay.gif";
-import CloudsNight from "../assets/CloudsNight.gif";
-import Haze from "../assets/Haze.gif";
-import video from "../assets/video1.mp4";
+import Thunderstorm from "../../public/Thunderstorm.gif";
+import Rain from "../../public/Rain.gif";
+import SnowDay from "../../public/Snow.gif";
+import ClearDay from "../../public/ClearDay.gif";
+import ClearNight from "../../public/ClearNight.gif";
+import CloudsDay from "../../public/CloudsDay.gif";
+import CloudsNight from "../../public/CloudsNight.gif";
+import Haze from "../../public/Haze.gif";
+import video from "../../public/video1.mp4";
 
 /**
  * Enhanced WeatherBackground

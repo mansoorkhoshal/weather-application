@@ -1,9 +1,9 @@
 // src/components/Icons.jsx
-import sunriseImg from "../assets/sunrise.png";
-import sunsetImg from "../assets/sunset.png";
-import windImg from "../assets/wind.png";
-import humidityImg from "../assets/humidity.png";
-import visibilityImg from "../assets/visibility.png";
+import sunriseImg from "../../public/sunrise.png";
+import sunsetImg from "../../public/sunset.png";
+import windImg from "../../public/wind.png";
+import humidityImg from "../../public/humidity.png";
+import visibilityImg from "../../public/visibility.png";
 
 const Icon = ({ src, alt, className = "", title }) => (
   <img
